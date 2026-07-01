@@ -22,7 +22,7 @@ def test_gradient_descent_learns_parameters():
     y = np.array([3, 5, 7, 9])
     w_expected = 2
     b_expected = 1
-    w, b = gradient_descent(x, y, w=0, b=0, alpha=0.01, iterations=5000)
+    w, b, _ = gradient_descent(x, y, w=0, b=0, alpha=0.01, iterations=5000)
     assert np.isclose(w, w_expected, atol=0.01)
     assert np.isclose(b, b_expected, atol=0.01)
 
@@ -30,7 +30,7 @@ def test_uni_linear_regression_learns_parameters():
     x = np.array([1, 2, 3, 4])
     y = np.array([3, 5, 7, 9])  # y = 2x + 1
 
-    w, b = uni_linear_regression(x, y, alpha=0.01, iterations=5000)
+    w, b, _ = uni_linear_regression(x, y, alpha=0.01, iterations=5000)
 
     assert np.isclose(w, 2, atol=0.01)
     assert np.isclose(b, 1, atol=0.01)

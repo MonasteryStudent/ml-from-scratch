@@ -10,6 +10,7 @@ def compute_cost(x, y, w, b):
 
 def gradient_descent(x, y, w, b, alpha, iterations):
     m = len(x)
+    cost_history = []
     for _ in range(iterations):
         error = predict(x, w, b) - y
         dj_dw = np.sum(error * x) / m
@@ -18,7 +19,8 @@ def gradient_descent(x, y, w, b, alpha, iterations):
         b_temp = b - alpha * dj_db
         w = w_temp
         b = b_temp
-    return w, b
+        cost_history.append(compute_cost(x, y, w, b))
+    return w, b, cost_history
 
 def uni_linear_regression(x, y, alpha, iterations):
     w = 0

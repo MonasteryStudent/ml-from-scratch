@@ -1,5 +1,5 @@
 import numpy as np
-from ml_from_scratch.linear_regression import (
+from ml_from_scratch.univariate_linear_regression import (
     compute_cost, 
     predict,
     gradient_descent,

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from ml_from_scratch.univariate_linear_regression import (
     predict, 
     compute_cost,
-    uni_linear_regression,
+    fit,
 )
 from utils.helpers import (
     compute_cost_surface_vectorized,
@@ -110,7 +110,7 @@ def plot_3D_surface(x, y):
 
 def plot_contour(x, y):
     """Plot the cost function as a contour plot."""
-    w_opt, b_opt = uni_linear_regression(x, y, 0.01, 5000)
+    w_opt, b_opt = fit(x, y, 0.01, 5000)
     w_range = 1.2
     b_range = 6.0
     w_values = np.linspace(w_opt - w_range, w_opt + w_range, 100)

@@ -6,7 +6,16 @@ from ml_from_scratch.univariate_linear_regression import (
 )
 
 def generate_study_hour_dataset():
-    """Generate a synthetic study-hours dataset for the notebooks."""
+    """
+    Generate a synthetic study-hours dataset for the notebooks.
+
+    Returns
+    -------
+    x : ndarray of shape (20,)
+        Feature vector with study hours.
+    y : ndarray of shape (20,)
+        Target vector containing the exam scores.
+    """
     np.random.seed(42)
     x = np.arange(1, 21)
     y = 4 * x + 20 + np.random.normal(0, 10, len(x))

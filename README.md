@@ -4,21 +4,19 @@
 
 This repository contains machine learning algorithms implemented from scratch using Python and NumPy. The implementations are developed while studying new concepts and may evolve step by step.
 
-The goal of this project is to develop a deeper understanding of machine learning by implementing algorithms without relying on high-level machine learning libraries such as scikit-learn.
+The goal is to build a deeper understanding of machine learning without relying on high-level machine learning libraries such as scikit-learn.
 
-The project also explores the mathematical foundations behind the algorithms. These sections provide additional technical depth, but readers may focus on the intuition and practical examples without working through every mathematical detail.
-
-In addition to the implementations, the repository contains notebooks with explanations, experiments, and visualizations created during the learning process.
+The repository also includes notebooks with explanations, mathematical background, experiments, and visualizations created during the learning process.
 
 ## How to Approach the Notebooks
 
-Each topic is covered in a dedicated notebook that combines intuitive explanations, mathematical background, code examples, and visualizations.
+Each topic is covered in a dedicated notebook that combines intuition, mathematical foundations, code examples, and visualizations.
 
 ## Learning Resources
 
-Here are the resources I used to learn ML. This will be updated if I feel that I start using other resources more frequently.
+The following resources are used throughout the learning process. This list may be updated as the project evolves.
 
-- Machine Learning Specialization (DeepLearning.AI, Andrew Ng)
+- Machine Learning Specialization — DeepLearning.AI, Andrew Ng
 
 ## Topics
 

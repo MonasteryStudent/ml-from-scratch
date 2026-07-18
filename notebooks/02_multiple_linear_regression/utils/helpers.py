@@ -1,6 +1,12 @@
 import numpy as np
 import pandas as pd
 
+from ml_from_scratch.multiple_linear_regression import (
+    compute_cost,
+    compute_gradient
+)
+
+
 def generate_multiple_linear_regression_dataset():
     """
     Generate a synthetic dataset for multiple linear regression.
@@ -42,6 +48,7 @@ def generate_multiple_linear_regression_dataset():
 
     return X, y
 
+
 def create_dataset_table(X, y):
     """
     Create a formatted table of the synthetic dataset.
@@ -64,3 +71,31 @@ def create_dataset_table(X, y):
     table["Training Example"] = np.arange(1, len(table) + 1)
 
     return table.style.hide(axis="index").format(precision=1)
+
+
+def standardize_features(X):
+    """Standardize each feature using z-score standardization."""
+
+    means = np.mean(X, axis=0)
+    standard_deviations = np.std(X, axis=0)
+    return (X - means) / standard_deviations
+
+
+def compute_cost_histories(X, y, w_init, b_init, learning_rates, iterations):
+    """Compute cost histories for different learning rates."""
+    cost_histories = []
+
+    for alpha in learning_rates:
+        w = w_init.copy()
+        b = b_init
+        cost_history = [compute_cost(X, y, w, b)]
+
+        for _ in range(iterations-1):
+            dj_dw, dj_db = compute_gradient(X, y, w, b)
+            w = w - alpha * dj_dw
+            b = b - alpha * dj_db
+            cost_history.append(compute_cost(X, y, w, b))
+
+        cost_histories.append(cost_history)
+
+    return cost_histories

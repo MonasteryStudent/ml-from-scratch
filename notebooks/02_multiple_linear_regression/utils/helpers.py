@@ -81,21 +81,17 @@ def standardize_features(X):
     return (X - means) / standard_deviations
 
 
-def compute_cost_histories(X, y, w_init, b_init, learning_rates, iterations):
-    """Compute cost histories for different learning rates."""
-    cost_histories = []
+def compute_cost_history(X, y, w_init, b_init, alpha, iterations):
+    """Compute the initial cost and the cost after each gradient descent update."""
 
-    for alpha in learning_rates:
-        w = w_init.copy()
-        b = b_init
-        cost_history = [compute_cost(X, y, w, b)]
+    w = w_init.copy()
+    b = b_init
+    cost_history = [compute_cost(X, y, w, b)]
 
-        for _ in range(iterations-1):
-            dj_dw, dj_db = compute_gradient(X, y, w, b)
-            w = w - alpha * dj_dw
-            b = b - alpha * dj_db
-            cost_history.append(compute_cost(X, y, w, b))
-
-        cost_histories.append(cost_history)
-
-    return cost_histories
+    for _ in range(iterations):
+        dj_dw, dj_db = compute_gradient(X, y, w, b)
+        w = w - alpha * dj_dw
+        b = b - alpha * dj_db
+        cost_history.append(compute_cost(X, y, w, b))
+    
+    return cost_history

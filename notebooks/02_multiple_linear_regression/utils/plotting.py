@@ -55,29 +55,50 @@ def plot_scaling_comparison(X_subset, X_subset_standardized, feature_names):
     fig.subplots_adjust(top=0.82, bottom=0.15, left=0.08, right=0.97)
 
 
-def plot_cost_histories(cost_histories, learning_rates):
-    """Plot cost histories for different learning rates."""
+def plot_cost_history(cost_history, ax_title):
+    """Plot a single cost history for hyperparameter tuning."""
+
+    fig, ax = plt.subplots(figsize=(6, 4))
+
+    ax.plot(cost_history)
+    ax.set_title(ax_title)
+    ax.set_xlabel("Iteration")
+    ax.set_ylabel("Cost")
+
+    fig.text(
+        0.5,
+        0.01,
+        f"Final Cost: {cost_history[-1]:.3f}",
+        ha="center",
+    )
+
+    fig.subplots_adjust(
+        top=0.85,
+        bottom=0.2,
+    )
+
+
+def plot_cost_histories(cost_histories, figure_title, axes_titles, fig_size, sharey=False):
+    """Plot multiple cost histories in separate subplots."""
 
     fig, axes = plt.subplots(
         1, 
         len(cost_histories), 
-        figsize=(15, 3.5), 
-        sharey=True
+        figsize=fig_size,
+        sharey=sharey
     )
 
     # Ensure that axes is always iterable.
     axes = np.atleast_1d(axes)
 
-    fig.suptitle(
-        "Cost History for Different Learning Rates",
-        fontsize=14
-    )
+    fig.suptitle(figure_title, fontsize=14)
 
-    for ax, history, alpha in zip(axes, cost_histories, learning_rates):
+    for ax, history, title in zip(axes, cost_histories, axes_titles):
         ax.plot(history)
-        ax.set_title(f"alpha={alpha}")
+        ax.set_title(title)
         ax.set_xlabel("Iteration")
 
     axes[0].set_ylabel("Cost")
 
     plt.tight_layout(rect=[0, 0, 1, 0.93])
+

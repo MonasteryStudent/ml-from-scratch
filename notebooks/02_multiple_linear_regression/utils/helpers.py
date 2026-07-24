@@ -8,42 +8,36 @@ from ml_from_scratch.multiple_linear_regression import (
 
 
 def generate_multiple_linear_regression_dataset():
-    """
-    Generate a synthetic dataset for multiple linear regression.
+    """Generate a synthetic dataset for multiple linear regression."""
 
-    Features
-    --------
-    X[:, 0] : Study hours
-    X[:, 1] : Lecture attendance (%)
-    X[:, 2] : Completed practice tests
-    X[:, 3] : Hours of sleep before the exam
+    rng = np.random.default_rng(42)
 
-    Returns
-    -------
-    X : ndarray of shape (20, 4)
-        Feature matrix.
+    m = 40
+    progress = np.linspace(0, 1, m)
 
-    y : ndarray of shape (20,)
-        Target vector containing the exam scores.
-    """
+    study_hours = 1 + 19 * progress + rng.normal(0, 1.2, m)
+    attendance = 55 + 40 * progress + rng.normal(0, 7, m)
+    practice_tests = 10 * progress + rng.normal(0, 1.5, m)
+    sleep = 6.0 + 2.0 * progress + rng.normal(0, 0.5, m)
 
-    np.random.seed(42)
+    study_hours = np.clip(study_hours, 1, 20)
+    attendance = np.clip(attendance, 55, 100)
+    practice_tests = np.clip(practice_tests, 0, 10)
+    sleep = np.clip(sleep, 5.5, 8.5)
 
-    m = 20
-    study_hours = np.linspace(1, 20, m)
-    attendance = np.linspace(55, 100, m) + np.random.normal(0, 3, m)
-    practice_tests = np.linspace(0, 10, m) + np.random.normal(0, 0.4, m)
-    sleep = np.linspace(5.5, 8.5, m) + np.random.normal(0, 0.2, m)
+    X = np.column_stack(
+        (
+            study_hours,
+            attendance,
+            practice_tests,
+            sleep,
+        )
+    )
 
-    X = np.column_stack((study_hours, attendance, practice_tests, sleep))
+    true_w = np.array([1.5, 0.21, 1.2, 1.8])
+    true_b = 17.0
 
-    # Underlying linear model used to generate the synthetic dataset.
-    # Note that the magnitudes of the weights cannot be compared directly
-    # because the features have different scales.
-    true_w = np.array([2.5, 0.35, 2.0, 3.0])
-    true_b = 0.0
-
-    noise = np.random.normal(0, 2, m)
+    noise = rng.normal(0, 2, m)
     y = X @ true_w + true_b + noise
 
     return X, y
@@ -95,3 +89,19 @@ def compute_cost_history(X, y, w_init, b_init, alpha, iterations):
         cost_history.append(compute_cost(X, y, w, b))
     
     return cost_history
+
+
+def generate_polynomial_regression_dataset():
+    """Generate a synthetic dataset with a quadratic relationship."""
+
+    rng = np.random.default_rng(42)
+
+    m = 40
+
+    sleep = np.linspace(5.5, 12.0, m)
+
+    noise = rng.normal(0, 2, m)
+
+    exam_scores = -3 * (sleep - 8) ** 2 + 92 + noise
+
+    return sleep, exam_scores

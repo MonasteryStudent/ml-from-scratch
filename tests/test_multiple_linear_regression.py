@@ -1,5 +1,6 @@
-import numpy as np
 import pytest
+import numpy as np
+
 from ml_from_scratch.multiple_linear_regression import (
     predict,
     compute_cost,
@@ -8,12 +9,14 @@ from ml_from_scratch.multiple_linear_regression import (
     fit
 )
 
+
 def test_predict():
     X = np.array([[1, 2], [3, 4]])
     y = np.array([9, 19])
     w = np.array([2, 3])
     b = 1
     assert np.array_equal(predict(X, w, b), y)
+
 
 @pytest.mark.parametrize(
         "X, y, w, b, expected_cost",
@@ -40,6 +43,7 @@ def test_compute_cost(X, y, w, b, expected_cost):
     cost = compute_cost(X, y, w, b)
 
     assert cost == pytest.approx(expected_cost)
+
 
 @pytest.mark.parametrize(
         "X, y, w, b, expected_gradient",
@@ -68,6 +72,7 @@ def test_compute_gradient(X, y, w, b, expected_gradient):
     assert np.allclose(dj_dw, expected_gradient[0])
     assert dj_db == pytest.approx(expected_gradient[1])
 
+
 def test_gradient_descent_reduces_cost():
     X = np.array([
         [1, 2],
@@ -94,6 +99,7 @@ def test_gradient_descent_reduces_cost():
     final_cost = compute_cost(X, y, w_final, b_final)
 
     assert final_cost < initial_cost
+
 
 def test_fit_returns_parameters_with_correct_shape():
     X = np.array([

@@ -1,5 +1,6 @@
-import numpy as np
 import pytest
+import numpy as np
+
 from ml_from_scratch.univariate_linear_regression import (
     predict, 
     compute_cost, 
@@ -8,12 +9,14 @@ from ml_from_scratch.univariate_linear_regression import (
     fit,
 )
 
+
 def test_predict():
     x = np.array([1, 2, 3])
     y = np.array([3, 5, 7])
     w = 2
     b = 1
     assert np.allclose(predict(x, w, b), y)
+
 
 @pytest.mark.parametrize(
         "x, y, w, b, expected_cost",
@@ -41,6 +44,7 @@ def test_compute_cost(x, y, w, b, expected_cost):
     cost = compute_cost(x, y, w, b)
     assert cost == pytest.approx(expected_cost)
 
+
 @pytest.mark.parametrize(
       "x, y, w, b, expected_gradient",
       [
@@ -67,6 +71,7 @@ def test_compute_gradient(x, y, w, b, expected_gradient):
     assert dj_dw == pytest.approx(expected_gradient[0])
     assert dj_db == pytest.approx(expected_gradient[1])
 
+
 def test_gradient_descent_learns_parameters():
     x = np.array([1, 2, 3, 4])
     y = np.array([3, 5, 7, 9])
@@ -75,6 +80,7 @@ def test_gradient_descent_learns_parameters():
     w, b = gradient_descent(x, y, w=0, b=0, alpha=0.01, iterations=5000)
     assert np.isclose(w, w_expected, atol=0.01)
     assert np.isclose(b, b_expected, atol=0.01)
+
 
 def test_fit_uni_linear_regression_model():
     x = np.array([1, 2, 3, 4])

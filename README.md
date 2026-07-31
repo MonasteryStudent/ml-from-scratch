@@ -8,10 +8,6 @@ The goal is to build a deeper understanding of machine learning without relying 
 
 The repository also includes notebooks with explanations, mathematical background, experiments, and visualizations created during the learning process.
 
-## How to Approach the Notebooks
-
-Each topic is covered in a dedicated notebook that combines intuition, mathematical foundations, code examples, and visualizations.
-
 ## Learning Resources
 
 The following resources are used throughout the learning process. This list may be updated as the project evolves.
@@ -22,6 +18,10 @@ The following resources are used throughout the learning process. This list may 
 
 - Linear Regression
 - Gradient Descent
+- Multiple Linear Regression
+- Feature Scaling
+- Polynomial Regression
+- Logistic Regression
 
 ## Getting Started
 

@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+
 from ml_from_scratch.univariate_linear_regression import (
     predict, 
     compute_cost,
@@ -9,12 +10,14 @@ from utils.helpers import (
     compute_cost_surface_vectorized,
 )
 
+
 def plot_dataset(x, y):
     """Plot the synthetic training dataset."""
     plt.scatter(x, y)
     plt.xlabel("Study Hours")
     plt.ylabel("Exam Score")
     plt.title("Training Data")
+
 
 def plot_errors(x, y, w, b):
     """Plot prediction errors for a linear regression model."""
@@ -28,6 +31,7 @@ def plot_errors(x, y, w, b):
     plt.plot([], [], "r--", label="Prediction error")
     plt.title("Prediction Errors")
 
+
 def plot_simple_cost_function(w_values, costs):
     """Plot the simplified cost function J(w)."""
     plt.plot(w_values, costs)
@@ -35,10 +39,12 @@ def plot_simple_cost_function(w_values, costs):
     plt.ylabel("J(w)")
     plt.title("Simple Cost Function")
 
+
 def plot_cost_point(x, y, w, color, s, label=None):
     """Mark a point on the simplified cost function J(w)."""
     cost = compute_cost(x, y, w, 0)
     plt.scatter(w, cost, color=color, s=s, zorder=5, label=label)
+
 
 def _plot_model(ax, x, y, model):
     """Plot a single linear regression model including prediction errors."""
@@ -57,6 +63,7 @@ def _plot_model(ax, x, y, model):
         bbox=dict(facecolor="white", alpha=0.8)
     )
 
+
 def plot_model_comparison(x, y, model_params):
     """Compare multiple linear regression models side by side."""
     models = []
@@ -74,9 +81,11 @@ def plot_model_comparison(x, y, model_params):
     axes[0].set_ylabel("Exam Score")
     plt.tight_layout()
 
+
 def plot_tangent(w_tangent, j_tangent):
     """Plot a tangent line."""
     plt.plot(w_tangent, j_tangent, label="Tangent")
+
 
 def plot_cost_history(cost_history):
     """Plot the cost history of Gradient Descent."""
@@ -84,6 +93,7 @@ def plot_cost_history(cost_history):
     plt.xlabel("Iteration")
     plt.ylabel("Cost")
     plt.title("Gradient Descent Convergence")
+
 
 def plot_3D_surface(x, y):
     """Plot the cost function as a 3D surface."""
@@ -108,6 +118,7 @@ def plot_3D_surface(x, y):
 
     plt.tight_layout()
 
+
 def plot_contour(x, y):
     """Plot the cost function as a contour plot."""
     w_opt, b_opt = fit(x, y, 0.01, 5000)
@@ -128,6 +139,7 @@ def plot_contour(x, y):
     plt.ylabel("b")
     plt.title("Contour Plot of the Cost Function")
 
+
 def _plot_path_arrows(ax, path_w, path_b, arrow_every):
     """Draw Gradient Descent update arrows on a contour plot."""
     for i in range(0, len(path_w) - arrow_every, arrow_every):
@@ -144,6 +156,7 @@ def _plot_path_arrows(ax, path_w, path_b, arrow_every):
             zorder=5,
         )
     ax.plot([], [], color="red", linewidth=2, label="Gradient Descent steps")
+
 
 def plot_gradient_descent_path(x, y, path_w, path_b, arrow_every=150):
     """Plot Gradient Descent update steps on the cost function contour plot."""

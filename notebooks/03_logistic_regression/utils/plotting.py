@@ -29,3 +29,21 @@ def plot_binary_classes(X, y, feature_names):
     ax.legend()
 
     plt.tight_layout()
+
+
+def plot_sigmoid_function(z, probabilities):
+    """Plot the sigmoid function over a range of linear model outputs."""
+
+    fig, ax = plt.subplots(figsize=(7, 4))
+
+    ax.plot(z, probabilities)
+    ax.axhline(0.5, linestyle="--", linewidth=1)
+    ax.axvline(0.0, linestyle="--", linewidth=1)
+
+    ax.set_title("Sigmoid Function")
+    ax.set_xlabel("Linear model output $z$")
+    ax.set_ylabel("Probability $\\sigma(z)$")
+    ax.set_ylim(-0.05, 1.05)
+    ax.grid(alpha=0.3)
+
+    return fig, ax

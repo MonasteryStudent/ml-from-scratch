@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
-
-def plot_binary_classes(X, y, feature_names):
+def plot_binary_classes(X, y):
     """Plot a binary classification dataset with separate class markers."""
 
     negative_class = y == 0
@@ -13,15 +13,17 @@ def plot_binary_classes(X, y, feature_names):
         X[positive_class, 0],
         X[positive_class, 1],
         marker="x",
-        label="Passed",
+        label="Passed (y = 1)",
     )
 
     ax.scatter(
         X[negative_class, 0],
         X[negative_class, 1],
         marker="o",
-        label="Failed",
+        label="Failed (y = 0)",
     )
+
+    feature_names = ["Study hours", "Practice tests"]
 
     ax.set_title("Exam outcome by study activity")
     ax.set_xlabel(feature_names[0])
@@ -47,3 +49,15 @@ def plot_sigmoid_function(z, probabilities):
     ax.grid(alpha=0.3)
 
     return fig, ax
+
+
+def plot_decision_boundary(x1_values, x2_values):
+    """Plot a linear decision boundary."""
+
+    plt.plot(
+        x1_values,
+        x2_values,
+        color="purple",
+        linestyle="--",
+        label="Decision Boundary"
+    )

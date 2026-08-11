@@ -9,7 +9,7 @@ def generate_logistic_regression_dataset():
     m = 40
 
     study_hours = rng.uniform(1, 20, m)
-    practice_tests = rng.uniform(0, 10, m)
+    practice_tests = rng.integers(0, 11, m)
 
     X = np.column_stack(
         (
@@ -22,8 +22,7 @@ def generate_logistic_regression_dataset():
     true_w = np.array([0.5, 0.9])
     true_b = -8.0
 
-    noise = rng.normal(0, 1.0, m)
-    z = X @ true_w + true_b + noise
+    z = X @ true_w + true_b
 
     y = (z >= 0).astype(int)
 

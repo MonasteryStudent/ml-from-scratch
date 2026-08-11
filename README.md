@@ -25,52 +25,43 @@ The following resources are used throughout the learning process. This list may 
 
 ## Getting Started
 
-### Clone the repository
+Follow these steps to set up the project:
+
+1. Clone the repository
+2. Create and activate a virtual environment
+3. Install the project and development dependencies
+4. Run the tests
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/MonasteryStudent/ml-from-scratch.git
 cd ml-from-scratch
 ```
 
-### Create a virtual environment
+### 2. Set up a virtual environment
+
+Create the virtual environment:
 
 ```bash
 python3 -m venv .venv
 ```
 
-### Activate the virtual environment
-
-Linux / macOS:
+Activate it (Linux / macOS):
 
 ```bash
 source .venv/bin/activate
 ```
 
-Windows:
+### 3. Install the project
 
-```powershell
-.venv\Scripts\activate
-```
-
-### Install the project
-
-Install the project together with development dependencies:
+Install the project together with its development dependencies:
 
 ```bash
 python -m pip install -e ".[dev]"
 ```
 
-### VS Code Notebook Setup
-
-To work with the notebooks in VS Code, install the following extensions:
-
-- Python
-- Jupyter
-
-Then select the project's virtual environment (`.venv`) as the notebook kernel. 
-After that, you can run any notebook in the `notebooks/` directory.
-
-### Run the tests
+### 4. Run the tests
 
 ```bash
 pytest

@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import numpy as np
+
 
 def plot_binary_classes(X, y):
     """Plot a binary classification dataset with separate class markers."""

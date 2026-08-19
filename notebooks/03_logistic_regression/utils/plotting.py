@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 
 def plot_binary_classes(X, y):
     """Plot a binary classification dataset with separate class markers."""
-
     negative_class = y == 0
     positive_class = y == 1
 
@@ -35,7 +34,6 @@ def plot_binary_classes(X, y):
 
 def plot_sigmoid_function(z, probabilities):
     """Plot the sigmoid function over a range of linear model outputs."""
-
     fig, ax = plt.subplots(figsize=(7, 4))
 
     ax.plot(z, probabilities)
@@ -53,7 +51,6 @@ def plot_sigmoid_function(z, probabilities):
 
 def plot_decision_boundary(x1_values, x2_values):
     """Plot a linear decision boundary."""
-
     plt.plot(
         x1_values,
         x2_values,

@@ -24,14 +24,30 @@ The following resources are used throughout the learning process. This list may 
 - Logistic Regression
 - Neural Networks
 
+## Project Structure
+
+```text
+ml-from-scratch/
+├── notebooks/
+│   ├── 01_linear_regression/
+│   ├── 02_multiple_linear_regression/
+│   └── 03_logistic_regression/
+├── src/
+│   └── ml_from_scratch/
+│       ├── forward_propagation.py
+│       ├── logistic_regression.py
+│       ├── multiple_linear_regression.py
+│       └── univariate_linear_regression.py
+├── tests/
+│   ├── test_forward_propagation.py
+│   ├── test_logistic_regression.py
+│   ├── test_multiple_linear_regression.py
+│   └── test_univariate_linear_regression.py
+├── pyproject.toml
+└── README.md
+```
+
 ## Getting Started
-
-Follow these steps to set up the project:
-
-1. Clone the repository
-2. Create and activate a virtual environment
-3. Install the project and development dependencies
-4. Run the tests
 
 ### 1. Clone the repository
 

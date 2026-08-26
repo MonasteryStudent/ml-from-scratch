@@ -22,6 +22,7 @@ The following resources are used throughout the learning process. This list may 
 - Feature Scaling
 - Polynomial Regression
 - Logistic Regression
+- Neural Networks
 
 ## Getting Started
 

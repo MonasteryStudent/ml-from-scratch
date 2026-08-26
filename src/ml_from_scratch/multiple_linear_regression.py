@@ -1,14 +1,17 @@
 import numpy as np
 
+
 def predict(X, w, b):
     """Compute predictions for multiple linear regression."""
     return X @ w + b
+
 
 def compute_cost(X, y, w, b):
     """Compute the mean squared error cost."""
     m = X.shape[0]
     error = predict(X, w, b) - y
     return np.sum(error**2) / (2 * m)
+
 
 def compute_gradient(X, y, w, b):
     """Compute the gradient of the cost function."""
@@ -18,6 +21,7 @@ def compute_gradient(X, y, w, b):
     dj_db = np.sum(error) / m
     return dj_dw, dj_db
 
+
 def gradient_descent(X, y, w, b, alpha, iterations):
     """Optimize the model parameters using gradient descent."""
     for _ in range(iterations):
@@ -25,6 +29,7 @@ def gradient_descent(X, y, w, b, alpha, iterations):
         w = w - alpha * dj_dw
         b = b - alpha * dj_db
     return w, b
+
 
 def fit(X, y, alpha, iterations):
     """Fit a multiple linear regression model."""

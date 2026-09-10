@@ -34,11 +34,13 @@ ml-from-scratch/
 │   └── 03_logistic_regression/
 ├── src/
 │   └── ml_from_scratch/
+│       ├── activation_functions.py
 │       ├── forward_propagation.py
 │       ├── logistic_regression.py
 │       ├── multiple_linear_regression.py
 │       └── univariate_linear_regression.py
 ├── tests/
+│   ├── test_activation_functions.py
 │   ├── test_forward_propagation.py
 │   ├── test_logistic_regression.py
 │   ├── test_multiple_linear_regression.py

@@ -1,14 +1,11 @@
 import numpy as np
 
+from ml_from_scratch.activation_functions import sigmoid
+
 
 def compute_logits(X, w, b):
     """Compute the linear model outputs z before applying the sigmoid function."""
     return X @ w + b
-
-
-def sigmoid(z):
-    """Compute sigmoid values in the range (0, 1) for the linear model outputs z."""
-    return 1 / (1 + np.exp(-z))
 
 
 def compute_cost(X, y, w, b):

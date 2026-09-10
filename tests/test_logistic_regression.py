@@ -3,7 +3,6 @@ import numpy as np
 
 from ml_from_scratch.logistic_regression import (
     compute_logits,
-    sigmoid,
     compute_cost,
     compute_gradient,
     gradient_descent,
@@ -27,18 +26,6 @@ b = 0.1
 def test_compute_logits():
     expected_logits = np.array([0.2, 1.4])
     assert np.allclose(compute_logits(X, w, b), expected_logits)
-
-
-@pytest.mark.parametrize(
-        "z, expected_proba",
-        [
-            (0.0, 0.5),
-            (np.log(3), 0.75),
-            (-np.log(3), 0.25)
-        ]
-)
-def test_sigmoid(z, expected_proba):
-    assert np.allclose(sigmoid(z), expected_proba)
 
 
 def test_compute_cost():

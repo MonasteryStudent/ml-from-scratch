@@ -35,7 +35,6 @@ ml-from-scratch/
 ├── src/
 │   └── ml_from_scratch/
 │       ├── activation_functions.py
-│       ├── forward_propagation.py
 │       ├── logistic_regression.py
 │       ├── multiple_linear_regression.py
 │       ├── neural_network.py

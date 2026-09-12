@@ -38,13 +38,9 @@ ml-from-scratch/
 │       ├── forward_propagation.py
 │       ├── logistic_regression.py
 │       ├── multiple_linear_regression.py
+│       ├── neural_network.py
 │       └── univariate_linear_regression.py
 ├── tests/
-│   ├── test_activation_functions.py
-│   ├── test_forward_propagation.py
-│   ├── test_logistic_regression.py
-│   ├── test_multiple_linear_regression.py
-│   └── test_univariate_linear_regression.py
 ├── pyproject.toml
 └── README.md
 ```

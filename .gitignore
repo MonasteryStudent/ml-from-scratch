@@ -1,10 +1,26 @@
+# Python virtual environment
 .venv/
+
+# Python cache and compiled files
 __pycache__/
 *.py[cod]
+
+# Pytest cache
 .pytest_cache/
+
+# Jupyter notebook checkpoints
 .ipynb_checkpoints/
+
+# Visual Studio Code settings
 .vscode/
+
+# Python build and package artifacts
 dist/
 build/
 *.egg-info/
+
+# macOS metadata
 .DS_Store
+
+# Windows download metadata
+*:Zone.Identifier

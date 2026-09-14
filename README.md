@@ -31,7 +31,8 @@ ml-from-scratch/
 ├── notebooks/
 │   ├── 01_linear_regression/
 │   ├── 02_multiple_linear_regression/
-│   └── 03_logistic_regression/
+│   ├── 03_logistic_regression/
+│   └── 04_neural_network/
 ├── src/
 │   └── ml_from_scratch/
 │       ├── activation_functions.py

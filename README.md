@@ -13,7 +13,7 @@ The repository also includes notebooks with explanations, mathematical backgroun
 The following resources are used throughout the learning process. This list may be updated as the project evolves.
 
 - Machine Learning Specialization — DeepLearning.AI, Andrew Ng
-- Mathematical Foundations of Reinforcement Learning - Shiyu Zhao
+- Mathematical Foundations of Reinforcement Learning — Shiyu Zhao
 
 ## Topics
 

@@ -13,6 +13,7 @@ The repository also includes notebooks with explanations, mathematical backgroun
 The following resources are used throughout the learning process. This list may be updated as the project evolves.
 
 - Machine Learning Specialization — DeepLearning.AI, Andrew Ng
+- Mathematical Foundations of Reinforcement Learning - Shiyu Zhao
 
 ## Topics
 
@@ -23,6 +24,7 @@ The following resources are used throughout the learning process. This list may 
 - Polynomial Regression
 - Logistic Regression
 - Neural Networks
+- Reinforcement Learning
 
 ## Project Structure
 
@@ -35,6 +37,7 @@ ml-from-scratch/
 │   └── 04_neural_network/
 ├── src/
 │   └── ml_from_scratch/
+│       ├── reinforcement_learning/
 │       ├── activation_functions.py
 │       ├── logistic_regression.py
 │       ├── multiple_linear_regression.py

@@ -3,15 +3,31 @@ import pytest
 
 from ml_from_scratch.reinforcement_learning.value_iteration import (
     bellman_optimality_update,
+    bellman_optimality_update_vectorized,
     value_iteration,
 )
 
+# Expected immediate rewards r(s, a).
+# Rows represent current states [s0, s1].
+# Columns represent actions [a0, a1].
+REWARDS = np.array([
+    [0.0, 1.0],  # Rewards in s0 for a0 and a1
+    [2.0, 0.0],  # Rewards in s1 for a0 and a1
+])
 
-# Rows: s0, s1. Columns: a0, a1. Last transition axis: s0, s1.
-REWARDS = np.array([[0.0, 1.0], [2.0, 0.0]])
+# Transition probabilities p(s' | s, a).
+# Axis 0: current state s
+# Axis 1: selected action a
+# Axis 2: possible next state s' in the order [s0, s1]
 TRANSITIONS = np.array([
-    [[1.0, 0.0], [0.0, 1.0]],
-    [[0.0, 1.0], [1.0, 0.0]],
+    [  # Current state s0
+        [1.0, 0.0],  # a0 leads to s0
+        [0.0, 1.0],  # a1 leads to s1
+    ],
+    [  # Current state s1
+        [0.0, 1.0],  # a0 leads to s1
+        [1.0, 0.0],  # a1 leads to s0
+    ],
 ])
 
 
@@ -76,3 +92,27 @@ def test_rejects_invalid_transition_distribution():
 
     with pytest.raises(ValueError, match="sum to 1"):
         value_iteration(REWARDS, invalid, gamma=0.5)
+
+
+def test_vectorized_update_matches_loop_update():
+    values = np.array([1.0, 2.0])
+
+    loop_q_values, loop_actions, loop_values = bellman_optimality_update(
+        values,
+        REWARDS,
+        TRANSITIONS,
+        gamma=0.5
+    )
+
+    vectorized_q_values, vectorized_actions, vectorized_values = (
+        bellman_optimality_update_vectorized(
+            values,
+            REWARDS,
+            TRANSITIONS,
+            gamma=0.5
+        )
+    )
+
+    np.testing.assert_allclose(vectorized_q_values, loop_q_values)
+    np.testing.assert_array_equal(vectorized_actions, loop_actions)
+    np.testing.assert_allclose(vectorized_values, loop_values)

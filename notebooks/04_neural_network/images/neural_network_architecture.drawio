@@ -1,9 +1,12 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Seite-1" id="gFf_HfqJgLrQwmVfOdXF">
-    <mxGraphModel dx="430" dy="847" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+    <mxGraphModel dx="945" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="trddqjEnPp2DqM5C3D_n-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="371.25" width="400" x="197.5" y="168.75" as="geometry" />
+        </mxCell>
         <mxCell id="DfMx4KUBNiMU3CDJSEvR-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;rotation=90;fillColor=none;strokeColor=#6C8EBF;" value="" vertex="1">
           <mxGeometry height="80" width="290" x="180" y="320" as="geometry" />
         </mxCell>
@@ -64,8 +67,8 @@
         <mxCell id="2yN5gFYPRLQ-XrAuagMY-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=#222222;fontSize=16;" value="&lt;font&gt;Output Layer&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="100" x="420" y="283" as="geometry" />
         </mxCell>
-        <mxCell id="75axagYd87kT301GDTyJ-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=#222222;fontSize=20;" value="&lt;font&gt;&lt;b&gt;Neural Network Architecture&lt;/b&gt;&lt;/font&gt;" vertex="1">
-          <mxGeometry height="30" width="276.5" x="259.25" y="140" as="geometry" />
+        <mxCell id="trddqjEnPp2DqM5C3D_n-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=18;fontColor=light-dark(#222222,#222222);" value="Neural Network Architecture" vertex="1">
+          <mxGeometry height="30" width="227.5" x="283.75" y="138.75" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

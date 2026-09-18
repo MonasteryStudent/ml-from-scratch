@@ -91,3 +91,68 @@ def plot_decision_boundary(
     )
 
     return fig, ax
+
+
+def plot_activation_functions(z, relu_values, sigmoid_values):
+    """Plot the ReLU and sigmoid activation functions."""
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+
+    axes[0].plot(z, relu_values)
+    axes[0].axhline(0, color="gray", linewidth=1)
+    axes[0].axvline(0, color="gray", linewidth=1)
+    axes[0].set_title("ReLU")
+    axes[0].set_xlabel("$z$")
+    axes[0].set_ylabel("$g(z)$")
+    axes[0].grid(alpha=0.3)
+
+    axes[1].plot(z, sigmoid_values)
+    axes[1].axhline(
+        0.5,
+        color="gray",
+        linestyle="--",
+        linewidth=1,
+    )
+    axes[1].axvline(
+        0,
+        color="gray",
+        linewidth=1,
+    )
+    axes[1].set_title("Sigmoid")
+    axes[1].set_xlabel("$z$")
+    axes[1].set_ylabel("$g(z)$")
+    axes[1].set_ylim(-0.05, 1.05)
+    axes[1].grid(alpha=0.3)
+
+    plt.tight_layout()
+
+    return fig, axes
+
+
+def plot_binary_cross_entropy(
+    probabilities,
+    positive_losses,
+    negative_losses,
+):
+    """Plot binary cross-entropy for both target classes."""
+    fig, ax = plt.subplots(figsize=(7, 4))
+
+    ax.plot(
+        probabilities,
+        positive_losses,
+        label="$y = 1$",
+    )
+    ax.plot(
+        probabilities,
+        negative_losses,
+        label="$y = 0$",
+    )
+
+    ax.set_title("Binary Cross-Entropy Loss")
+    ax.set_xlabel("Predicted probability $\\hat{y}$")
+    ax.set_ylabel("Loss")
+    ax.grid(alpha=0.3)
+    ax.legend()
+
+    plt.tight_layout()
+
+    return fig, ax

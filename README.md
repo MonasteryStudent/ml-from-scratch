@@ -38,14 +38,14 @@ ml-from-scratch/
 ├── src/
 │   └── ml_from_scratch/
 │       ├── reinforcement_learning/
+│       │   ├── policy_iteration.py
+│       │   └── value_iteration.py
 │       ├── activation_functions.py
 │       ├── logistic_regression.py
 │       ├── multiple_linear_regression.py
 │       ├── neural_network.py
 │       └── univariate_linear_regression.py
-├── tests/
-├── pyproject.toml
-└── README.md
+└── tests/
 ```
 
 ## Getting Started

@@ -86,14 +86,6 @@ def test_initial_guess_does_not_change_solution_or_mutate_input():
     assert np.array_equal(initial_values, [8.0, -3.0])
 
 
-def test_rejects_invalid_transition_distribution():
-    invalid = TRANSITIONS.copy()
-    invalid[0, 1] = [0.2, 0.2]
-
-    with pytest.raises(ValueError, match="sum to 1"):
-        value_iteration(REWARDS, invalid, gamma=0.5)
-
-
 def test_vectorized_update_matches_loop_update():
     values = np.array([1.0, 2.0])
 
@@ -116,3 +108,13 @@ def test_vectorized_update_matches_loop_update():
     np.testing.assert_allclose(vectorized_q_values, loop_q_values)
     np.testing.assert_array_equal(vectorized_actions, loop_actions)
     np.testing.assert_allclose(vectorized_values, loop_values)
+
+
+def test_value_iteration_raises_when_iteration_limit_is_reached():
+    with pytest.raises(RuntimeError, match="did not converge"):
+        value_iteration(
+            REWARDS,
+            TRANSITIONS,
+            gamma=0.5,
+            max_iterations=1
+        )

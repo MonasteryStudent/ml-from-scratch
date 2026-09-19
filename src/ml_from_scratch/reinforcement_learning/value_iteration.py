@@ -45,53 +45,6 @@ def bellman_optimality_update_vectorized(
     return q_values, greedy_actions, new_values
 
 
-def _validate_value_iteration_inputs(
-    expected_rewards, transitions, gamma, tolerance, max_iterations
-):
-    """Validate the model and value-iteration parameters."""
-    if expected_rewards.ndim != 2:
-        raise ValueError(
-            "expected_rewards must have shape (states, actions)"
-        )
-
-    n_states, n_actions = expected_rewards.shape
-
-    if n_states == 0 or n_actions == 0:
-        raise ValueError("at least one state and action are required")
-
-    if transitions.shape != (n_states, n_actions, n_states):
-        raise ValueError(
-            "transitions must have shape (states, actions, states)"
-        )
-
-    if not np.all(np.isfinite(expected_rewards)):
-        raise ValueError("expected_rewards must contain finite numbers")
-
-    if not np.all(np.isfinite(transitions)):
-        raise ValueError("transitions must contain finite numbers")
-
-    if np.any(transitions < 0):
-        raise ValueError("transition probabilities must be nonnegative")
-
-    if not np.allclose(transitions.sum(axis=2), 1):
-        raise ValueError(
-            "each transition distribution must sum to 1"
-        )
-
-    if not np.isfinite(gamma) or not 0 <= gamma < 1:
-        raise ValueError("gamma must be in [0, 1)")
-
-    if not np.isfinite(tolerance) or tolerance <= 0:
-        raise ValueError(
-            "tolerance must be a positive finite number"
-        )
-
-    if not isinstance(max_iterations, int) or max_iterations < 1:
-        raise ValueError(
-            "max_iterations must be a positive integer"
-        )
-
-
 def value_iteration(
     expected_rewards, 
     transitions,
@@ -105,13 +58,10 @@ def value_iteration(
     expected_rewards[state, action] is the expected immediate reward.
     transitions[state, action, next_state] is the transition probability.
     Each action is assumed available in every state.
+    The model is assumed valid, with 0 <= gamma < 1.
     """
     expected_rewards = np.asarray(expected_rewards, dtype=float)
     transitions = np.asarray(transitions, dtype=float)
-
-    _validate_value_iteration_inputs(
-        expected_rewards, transitions, gamma, tolerance, max_iterations
-    )
 
     n_states = expected_rewards.shape[0]
 
@@ -119,8 +69,6 @@ def value_iteration(
         values = np.zeros(n_states, dtype=float)
     else:
         values = np.asarray(initial_values, dtype=float).copy()
-        if values.shape != (n_states,) or not np.all(np.isfinite(values)):
-            raise ValueError("initial_values must be a finite value for every state")
 
     value_history = [values.copy()]
 

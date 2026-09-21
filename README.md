@@ -4,7 +4,7 @@
 
 This repository contains machine learning algorithms implemented from scratch using Python and NumPy. The implementations are developed while studying new concepts and may evolve step by step.
 
-The goal is to build a deeper understanding of machine learning without relying on high-level machine learning libraries such as scikit-learn.
+The goal is to build a deeper understanding of machine learning by implementing algorithms from scratch with NumPy rather than relying on libraries that provide ready-made implementations.
 
 The repository also includes notebooks with explanations, mathematical background, experiments, and visualizations created during the learning process.
 

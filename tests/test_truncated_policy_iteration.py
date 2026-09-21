@@ -1,9 +1,9 @@
 import numpy as np
 
-from ml_from_scratch.reinforcement_learning.policy_iteration import (
-    policy_evaluation,
+from ml_from_scratch.reinforcement_learning.truncated_policy_iteration import (
     policy_improvement,
-    policy_iteration,
+    truncated_policy_evaluation,
+    truncated_policy_iteration,
 )
 
 # Expected immediate rewards r(s, a).
@@ -30,48 +30,66 @@ TRANSITIONS = np.array([
 ])
 
 
-def test_policy_evaluation_for_initial_policy():
-    # Select left in both states.
+def test_truncated_policy_evaluation_performs_fixed_number_of_updates():
     policy = np.array([0, 0])
+    initial_values = np.zeros(2)
 
-    values = policy_evaluation(
+    values = truncated_policy_evaluation(
         policy,
+        initial_values,
         EXPECTED_REWARDS,
         TRANSITIONS,
-        gamma=0.9
+        gamma=0.9,
+        evaluation_steps=3
     )
 
-    np.testing.assert_allclose(values, [-10.0, -9.0])
+    np.testing.assert_allclose(values, [-2.71, -1.71])
 
 
-def test_policy_improvement_for_initial_policy():
+def test_policy_improvement_selects_greedy_actions():
     values = np.array([-10.0, -9.0])
 
-    q_values, improved_policy = policy_improvement(
+    q_values, policy = policy_improvement(
         values,
         EXPECTED_REWARDS,
         TRANSITIONS,
-        gamma=0.9
+        gamma=0.9,
     )
 
-    np.testing.assert_allclose(q_values, [
+    expected_q_values = np.array([
         [-10.0, -9.0, -7.1],
         [ -9.0, -7.1, -9.1],
     ])
-    # The policy [2, 1] means right in s0 and stay in s1.
-    np.testing.assert_array_equal(improved_policy, [2, 1])
+
+    np.testing.assert_allclose(q_values, expected_q_values)
+    np.testing.assert_array_equal(policy, [2, 1])
 
 
-def test_policy_iteration_finds_optimal_policy():
+def test_truncated_policy_iteration_finds_optimal_policy():
     initial_policy = np.array([0, 0])
 
-    values, policy = policy_iteration(
+    values, policy = truncated_policy_iteration(
         initial_policy,
         EXPECTED_REWARDS,
         TRANSITIONS,
-        gamma=0.9
+        gamma=0.9,
+        evaluation_steps=3,
     )
 
     np.testing.assert_allclose(values, [10.0, 10.0])
     np.testing.assert_array_equal(policy, [2, 1])
-    np.testing.assert_array_equal(initial_policy, [0, 0])
+
+
+def test_truncated_policy_iteration_converges_with_one_evaluation_step():
+    initial_policy = np.array([0, 0])
+
+    values, policy = truncated_policy_iteration(
+        initial_policy,
+        EXPECTED_REWARDS,
+        TRANSITIONS,
+        gamma=0.9,
+        evaluation_steps=1,
+    )
+
+    np.testing.assert_allclose(values, [10.0, 10.0])
+    np.testing.assert_array_equal(policy, [2, 1])

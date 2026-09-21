@@ -39,6 +39,7 @@ ml-from-scratch/
 │   └── ml_from_scratch/
 │       ├── reinforcement_learning/
 │       │   ├── policy_iteration.py
+│       │   ├── truncated_policy_iteration.py
 │       │   └── value_iteration.py
 │       ├── activation_functions.py
 │       ├── logistic_regression.py

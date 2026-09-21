@@ -156,3 +156,20 @@ def plot_binary_cross_entropy(
     plt.tight_layout()
 
     return fig, ax
+
+
+def plot_cost_history(cost_history):
+    """Plot the cost recorded during training."""
+    fig, ax = plt.subplots(figsize=(7, 4))
+
+    iterations = range(1, len(cost_history) + 1)
+
+    ax.plot(iterations, cost_history)
+    ax.set_title("Cost During Training")
+    ax.set_xlabel("Iteration")
+    ax.set_ylabel("Cost $J$")
+    ax.grid(alpha=0.3)
+
+    plt.tight_layout()
+
+    return fig, ax

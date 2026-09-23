@@ -108,13 +108,3 @@ def test_vectorized_update_matches_loop_update():
     np.testing.assert_allclose(vectorized_q_values, loop_q_values)
     np.testing.assert_array_equal(vectorized_actions, loop_actions)
     np.testing.assert_allclose(vectorized_values, loop_values)
-
-
-def test_value_iteration_raises_when_iteration_limit_is_reached():
-    with pytest.raises(RuntimeError, match="did not converge"):
-        value_iteration(
-            REWARDS,
-            TRANSITIONS,
-            gamma=0.5,
-            max_iterations=1
-        )

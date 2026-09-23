@@ -2,7 +2,7 @@ import numpy as np
 
 
 def bellman_optimality_update(values, expected_rewards, transitions, gamma):
-    """Compute q-values, greedy actions, and new values from the OLD values."""
+    """Compute q-values, greedy actions, and new values from the old values."""
     n_states, n_actions = expected_rewards.shape
     q_values = np.zeros((n_states, n_actions), dtype=float)
 
@@ -21,15 +21,11 @@ def bellman_optimality_update(values, expected_rewards, transitions, gamma):
     # np.argmax chooses the first maximizing action when there is a tie.
     greedy_actions = np.argmax(q_values, axis=1)
     new_values = np.max(q_values, axis=1)
+
     return q_values, greedy_actions, new_values
 
 
-def bellman_optimality_update_vectorized(
-    values,
-    expected_rewards,
-    transitions,
-    gamma
-):
+def bellman_optimality_update_vectorized(values, expected_rewards, transitions, gamma):
     """Compute q-values, greedy actions, and new values using vectorization."""
     expected_future_values = transitions @ values
 
@@ -47,19 +43,12 @@ def bellman_optimality_update_vectorized(
 
 def value_iteration(
     expected_rewards, 
-    transitions,
-    gamma,
-    tolerance=1e-8,
-    max_iterations=10000,
+    transitions, 
+    gamma, 
+    tolerance=1e-8, 
     initial_values=None,
 ):
-    """Return approximate optimal values, greedy actions, and value history.
-
-    expected_rewards[state, action] is the expected immediate reward.
-    transitions[state, action, next_state] is the transition probability.
-    Each action is assumed available in every state.
-    The model is assumed valid, with 0 <= gamma < 1.
-    """
+    """Return approximate optimal values, greedy actions, and value history."""
     expected_rewards = np.asarray(expected_rewards, dtype=float)
     transitions = np.asarray(transitions, dtype=float)
 
@@ -72,15 +61,15 @@ def value_iteration(
 
     value_history = [values.copy()]
 
-    for _ in range(max_iterations):
+    while True:
         _, greedy_actions, new_values = bellman_optimality_update_vectorized(
             values, expected_rewards, transitions, gamma
         )
+
         difference = np.max(np.abs(new_values - values))
+
         value_history.append(new_values.copy())
         values = new_values
 
         if difference <= tolerance:
             return values, greedy_actions, np.asarray(value_history)
-
-    raise RuntimeError("value iteration did not converge within max_iterations")

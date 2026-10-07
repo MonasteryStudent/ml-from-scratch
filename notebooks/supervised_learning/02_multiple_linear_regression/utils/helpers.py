@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from ml_from_scratch.multiple_linear_regression import (
+from ml_from_scratch.supervised_learning.multiple_linear_regression import (
     compute_cost,
     compute_gradient
 )

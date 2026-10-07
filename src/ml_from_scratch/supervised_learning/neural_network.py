@@ -1,6 +1,6 @@
 import numpy as np
 
-from ml_from_scratch.activation_functions import (
+from ml_from_scratch.supervised_learning.activation_functions import (
     relu,
     relu_derivative,
     sigmoid,

@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 
-from ml_from_scratch.multiple_linear_regression import (
+from ml_from_scratch.supervised_learning.multiple_linear_regression import (
     predict,
     compute_cost,
     compute_gradient,

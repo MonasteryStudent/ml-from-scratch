@@ -1,6 +1,6 @@
 import numpy as np
 
-from ml_from_scratch.activation_functions import sigmoid
+from ml_from_scratch.supervised_learning.activation_functions import sigmoid
 
 
 def compute_logits(X, w, b):

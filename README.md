@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This repository contains machine learning algorithms implemented from scratch using Python and NumPy. The implementations are developed while studying new concepts and may evolve step by step.
+This repository contains machine learning algorithms and selected mathematical foundations implemented from scratch using Python and NumPy. The implementations are developed while studying new concepts and may evolve step by step.
 
-The goal is to build a deeper understanding of machine learning by implementing algorithms from scratch with NumPy rather than relying on libraries that provide ready-made implementations.
+The goal is to build a deeper understanding of machine learning without relying on libraries that provide ready-made algorithm implementations.
 
-The repository also includes notebooks with explanations, mathematical background, experiments, and visualizations created during the learning process.
+The repository also includes explanatory notebooks, exercises, and unit tests.
 
 ## Learning Resources
 
@@ -15,40 +15,19 @@ The following resources are used throughout the learning process. This list may 
 - Machine Learning Specialization — DeepLearning.AI, Andrew Ng
 - Mathematical Foundations of Reinforcement Learning — Shiyu Zhao
 
-## Topics
-
-- Linear Regression
-- Gradient Descent
-- Multiple Linear Regression
-- Feature Scaling
-- Polynomial Regression
-- Logistic Regression
-- Neural Networks
-- Reinforcement Learning
-
 ## Project Structure
 
 ```text
 ml-from-scratch/
+├── exercises/
+│   └── stochastic_approximation/
 ├── notebooks/
-│   ├── 01_linear_regression/
-│   ├── 02_multiple_linear_regression/
-│   ├── 03_logistic_regression/
-│   └── 04_neural_network/
+│   └── supervised_learning/
 ├── src/
 │   └── ml_from_scratch/
 │       ├── reinforcement_learning/
-│       │   ├── mc_basic.py
-│       │   ├── mc_epsilon_greedy.py
-│       │   ├── mc_exploring_starts.py
-│       │   ├── policy_iteration.py
-│       │   ├── truncated_policy_iteration.py
-│       │   └── value_iteration.py
-│       ├── activation_functions.py
-│       ├── logistic_regression.py
-│       ├── multiple_linear_regression.py
-│       ├── neural_network.py
-│       └── univariate_linear_regression.py
+│       ├── stochastic_approximation/
+│       └── supervised_learning/
 └── tests/
 ```
 

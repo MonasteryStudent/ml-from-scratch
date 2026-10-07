@@ -1,6 +1,6 @@
 import numpy as np
 
-from ml_from_scratch.neural_network import (
+from ml_from_scratch.supervised_learning.neural_network import (
     backward_propagation,
     compute_cost,
     fit,

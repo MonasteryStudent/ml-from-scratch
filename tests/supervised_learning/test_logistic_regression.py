@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 
-from ml_from_scratch.logistic_regression import (
+from ml_from_scratch.supervised_learning.logistic_regression import (
     compute_logits,
     compute_cost,
     compute_gradient,

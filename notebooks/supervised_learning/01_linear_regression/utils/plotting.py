@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from ml_from_scratch.univariate_linear_regression import (
+from ml_from_scratch.supervised_learning.univariate_linear_regression import (
     predict, 
     compute_cost,
     fit,

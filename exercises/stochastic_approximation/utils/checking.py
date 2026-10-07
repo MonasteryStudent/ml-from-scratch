@@ -105,3 +105,28 @@ def check_robbins_monro_answers(answer_rows):
         headers=headers,
         answer_start_column=1,
     )
+
+
+def check_sgd_answers(answer_rows):
+    """Check the answers for the SGD exercise."""
+    expected_answers = [
+        [0.0, 1.0, -2.0, 2.0],
+        [2.0, 1 / 2, -2.0, 3.0],
+        [3.0, 1 / 3, 0.0, 3.0],
+    ]
+
+    headers = [
+        r"$k$",
+        r"$x_k$",
+        r"$w_{k-1}$",
+        r"$\alpha_k$",
+        r"$\nabla_w f(w_{k-1},x_k)$",
+        r"$w_k$",
+    ]
+
+    check_table_answers(
+        answer_rows=answer_rows,
+        expected_answers=expected_answers,
+        headers=headers,
+        answer_start_column=2,
+    )

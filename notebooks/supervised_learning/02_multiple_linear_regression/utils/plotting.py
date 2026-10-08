@@ -31,11 +31,16 @@ def plot_scaling_comparison(X_subset, X_subset_standardized, feature_names):
     """Plot two features against each other before and after feature scaling."""
 
     subsets = [X_subset, X_subset_standardized]
-    titles = ["Before Scaling", "After Standardization"]
+    titles = ["Before Scaling", "After Scaling"]
 
-    fig = plt.figure(figsize=(6, 4))
+    fig = plt.figure(figsize=(8, 5))
 
-    grid = fig.add_gridspec(1, 2, width_ratios=[1, 1.8], wspace=0.05)
+    grid = fig.add_gridspec(
+        1,
+        2,
+        width_ratios=[1.1, 1.6],
+        wspace=0.20,
+    )
 
     axes = [
         fig.add_subplot(grid[0, 0]),
@@ -49,8 +54,10 @@ def plot_scaling_comparison(X_subset, X_subset_standardized, feature_names):
 
         ax.set_title(title)
         ax.set_xlabel(feature_names[0])
-        ax.set_ylabel(feature_names[1])
-        ax.set_aspect("equal", adjustable="box")
+        # ax.set_ylabel(feature_names[1])
+        # ax.set_aspect("equal", adjustable="box")
+
+    axes[0].set_ylabel(feature_names[1])
 
     fig.subplots_adjust(top=0.82, bottom=0.15, left=0.08, right=0.97)
 

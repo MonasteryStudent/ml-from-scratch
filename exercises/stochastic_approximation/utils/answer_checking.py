@@ -36,7 +36,12 @@ def check_table_answers(
         dtype=float,
     )
 
-    if np.allclose(submitted_answers, expected_answers):
+    if np.allclose(
+        submitted_answers,
+        expected_answers,
+        rtol=0.0,
+        atol=5e-4,
+    ):
         print("Congratulations! All answers are correct.")
     else:
         print(

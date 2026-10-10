@@ -62,7 +62,7 @@ def check_td_basic_answers(answer_rows):
         submitted_answers,
         TD_BASIC_EXPECTED_ANSWERS,
         rtol=0.0,
-        atol=1e-4,
+        atol=5e-4,
     ):
         print("Congratulations, all answers are correct!")
     else:

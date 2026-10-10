@@ -20,7 +20,6 @@ The following resources are used throughout the learning process. This list may 
 ```text
 ml-from-scratch/
 ├── exercises/
-│   └── stochastic_approximation/
 ├── notebooks/
 │   └── supervised_learning/
 ├── src/
